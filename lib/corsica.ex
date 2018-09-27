@@ -648,9 +648,9 @@ defmodule Corsica do
     true
   end
 
-  def allowed_origin?(conn, %Options{origins: origins} =  options) do
+  def allowed_origin?(conn, %Options{origins: origins} = options) do
     [origin | _] = get_req_header(conn, "origin")
-    Logger.info("ALL OPTIONS: #{inspect options")
+    Logger.info("ALL OPTIONS: #{inspect(options)}")
     IO.puts("CHECKING: #{origin} in list: #{Enum.join(origins, ",")}")
     Logger.info("CHECKING: #{origin} in list: #{Enum.join(origins, ",")}")
     Enum.any?(List.wrap(origins), &matching_origin?(&1, origin))
